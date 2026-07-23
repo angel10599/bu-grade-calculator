@@ -1,0 +1,36 @@
+.error-boundary {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-8) var(--space-5);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.error-boundary__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  margin-bottom: var(--space-5);
+}
+
+.error-boundary__icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.error-boundary h2 {
+  margin-bottom: var(--space-3);
+}
+
+.error-boundary p {
+  margin-bottom: var(--space-6);
+}

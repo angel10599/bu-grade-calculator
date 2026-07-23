@@ -1,0 +1,111 @@
+:root {
+  /* ===== Bicol University Brand Palette ===== */
+  /* Sky Blue — primary brand color */
+  --color-primary: #00a2e8;
+  --color-primary-light: #4dc0f0;
+  --color-primary-dark: #0077b6;
+  --color-primary-tint: #e5f5fc;
+  --color-primary-tint-strong: #cdecfb;
+
+  /* Orange — accent (kept: complements the blue) */
+  --color-accent: #f5821f;
+  --color-accent-light: #ff9c3d;
+  --color-accent-dark: #c9650e;
+  --color-accent-tint: #fef0e2;
+
+  /* Grey — neutral base (echoes BU grey, cooler than generic slate) */
+  --color-grey-900: #292b2d;
+  --color-grey-700: #4c4f52;
+  --color-grey-500: #6f7377;
+  --color-grey-300: #c7cace;
+  --color-grey-100: #eef0f2;
+
+  /* Status colors */
+  --color-success: #1a7f4e;
+  --color-success-bg: #e2f6ec;
+  --color-warning: #b45309;
+  --color-warning-bg: #fef0e2;
+  --color-danger: #c62839;
+  --color-danger-bg: #fbe4e6;
+  --color-info: #00a2e8;
+  --color-info-bg: #e5f5fc;
+  --color-bronze: #8a5527;
+  --color-bronze-bg: #f5e9dd;
+
+  /* Neutral / surface colors (light mode) */
+  --color-bg: #f4f7f9;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f6fafc;
+  --color-border: #dde5ea;
+  --color-text: #1f2933;
+  --color-text-muted: #5c6b74;
+  --color-text-inverse: #ffffff;
+
+  /* Typography */
+  --font-family-base: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-family-heading: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Radius & shadow */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(15, 35, 45, 0.07);
+  --shadow-md: 0 6px 20px rgba(15, 35, 45, 0.1);
+  --shadow-lg: 0 16px 40px rgba(15, 35, 45, 0.16);
+  --shadow-glow-primary: 0 0 0 4px rgba(0, 119, 168, 0.14);
+  --shadow-glow-accent: 0 0 0 4px rgba(245, 130, 31, 0.14);
+  --shadow-glow-danger: 0 0 0 4px rgba(198, 40, 57, 0.14);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --header-height: 72px;
+  --max-content-width: 1200px;
+}
+
+/* Dark mode overrides */
+[data-theme='dark'] {
+  --color-bg: #0d1418;
+  --color-surface: #162126;
+  --color-surface-alt: #1c2a30;
+  --color-border: #2b3b42;
+  --color-text: #e9eff2;
+  --color-text-muted: #9db0b8;
+  --color-text-inverse: #0d1418;
+
+  --color-primary-light: #5cc8f5;
+  --color-primary-dark: #7fd4f7;
+  --color-primary-tint: #0f2c36;
+  --color-primary-tint-strong: #123746;
+  --color-accent-tint: #33220f;
+
+  --color-success-bg: #10301f;
+  --color-warning-bg: #33220f;
+  --color-danger-bg: #351417;
+  --color-info-bg: #0f2c36;
+  --color-bronze-bg: #2e2115;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+}

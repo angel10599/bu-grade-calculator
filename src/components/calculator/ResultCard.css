@@ -1,0 +1,328 @@
+/* ==========================================================================
+   RESULT CARD SYSTEM DESIGN
+   Shared by ResultCard (President's/Dean's Lister) and LatinHonorResultCard
+   (Latin Honors). Built entirely on the app's shared design tokens
+   (src/styles/variables.css) so it stays on-brand and works in dark mode.
+   ========================================================================== */
+
+.result-card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: var(--space-7) var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  max-width: 520px;
+  margin: var(--space-6) auto 0;
+  transition: box-shadow var(--transition-base), border-color var(--transition-base),
+    background-color var(--transition-base);
+  animation: result-card-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes result-card-entry {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Decorative background glow */
+.result-card__bg-glow {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 160px;
+  background: radial-gradient(circle, var(--color-accent-tint) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- THEME VARIATIONS --- */
+
+/* Gold: President's Lister / Summa Cum Laude */
+.result-card--gold {
+  border-color: rgba(245, 130, 31, 0.4);
+  background: linear-gradient(180deg, var(--color-accent-tint) 0%, var(--color-surface) 45%);
+}
+.result-card--gold .result-card__icon-wrap {
+  background: var(--color-accent-tint);
+  color: var(--color-accent-dark);
+  box-shadow: 0 0 0 6px rgba(245, 130, 31, 0.14);
+  animation: pulse-glow-gold 3s ease-in-out infinite;
+}
+.result-card--gold .result-card__standing {
+  background-color: var(--color-accent-tint);
+  color: var(--color-accent-dark);
+  border: 1px solid rgba(245, 130, 31, 0.3);
+}
+
+/* Silver: Dean's Lister / Magna Cum Laude */
+.result-card--silver {
+  border-color: rgba(0, 119, 168, 0.3);
+  background: linear-gradient(180deg, var(--color-primary-tint) 0%, var(--color-surface) 45%);
+}
+.result-card--silver .result-card__icon-wrap {
+  background: var(--color-primary-tint);
+  color: var(--color-primary);
+  box-shadow: 0 0 0 6px rgba(0, 119, 168, 0.1);
+}
+.result-card--silver .result-card__standing {
+  background-color: var(--color-primary-tint);
+  color: var(--color-primary);
+  border: 1px solid rgba(0, 119, 168, 0.25);
+}
+
+/* Bronze: Academic Progress / Cum Laude / With Academic Distinction */
+.result-card--bronze {
+  border-color: var(--color-bronze);
+  background: linear-gradient(180deg, var(--color-bronze-bg) 0%, var(--color-surface) 45%);
+}
+.result-card--bronze .result-card__icon-wrap {
+  background: var(--color-bronze-bg);
+  color: var(--color-bronze);
+  box-shadow: 0 0 0 6px rgba(138, 85, 39, 0.1);
+}
+.result-card--bronze .result-card__standing {
+  background-color: var(--color-bronze-bg);
+  color: var(--color-bronze);
+  border: 1px solid rgba(138, 85, 39, 0.3);
+}
+
+/* Neutral: No Latin Honor */
+.result-card--neutral {
+  border-color: var(--color-border);
+  background: linear-gradient(180deg, var(--color-surface-alt) 0%, var(--color-surface) 45%);
+}
+.result-card--neutral .result-card__icon-wrap {
+  background: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  box-shadow: 0 0 0 6px rgba(111, 115, 119, 0.1);
+}
+.result-card--neutral .result-card__standing {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+@keyframes pulse-glow-gold {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(245, 130, 31, 0.14); }
+  50% { box-shadow: 0 0 0 12px rgba(245, 130, 31, 0.03); }
+}
+
+/* --- HEADER & ICONS --- */
+.result-card__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.result-card__bu-tag {
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.85;
+}
+
+.result-card__icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  transition: transform var(--transition-base), background-color var(--transition-base);
+}
+
+.result-card__icon-wrap svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* --- TYPOGRAPHY & GWA --- */
+.result-card__name {
+  position: relative;
+  z-index: 1;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--space-4) 0;
+  letter-spacing: -0.01em;
+}
+
+.result-card__gwa-container {
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-4);
+}
+
+.result-card__gwa-label {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.result-card__gwa {
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-family-heading);
+}
+
+.result-card__standing-wrap {
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-3);
+}
+
+.result-card__standing {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 9999px;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.result-card__message {
+  position: relative;
+  z-index: 1;
+  font-size: var(--font-size-sm);
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 400px;
+  margin: 0 auto var(--space-5) auto;
+}
+
+/* --- MOTIVATIONAL QUOTE SECTION --- */
+.result-card__quote-box {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-surface-alt);
+  border-left: 3px solid var(--color-accent);
+  padding: var(--space-4) var(--space-4);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  margin: 0 auto var(--space-5) auto;
+  max-width: 420px;
+}
+
+.result-card__quote-box svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
+  opacity: 0.5;
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.result-card__quote-text {
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.45;
+  margin: 0 0 var(--space-2) 0;
+}
+
+.result-card__quote-author {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: right;
+  font-style: normal;
+}
+
+/* --- SUBTLE CONFETTI ANIMATION --- */
+.result-card__confetti-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.confetti-particle {
+  position: absolute;
+  top: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: confetti-fall 2.5s ease-out infinite;
+}
+
+.particle-1 { left: 10%; background: var(--color-accent); animation-delay: 0s; }
+.particle-2 { left: 25%; background: var(--color-primary); animation-delay: 0.3s; }
+.particle-3 { left: 40%; background: var(--color-accent-light); animation-delay: 0.1s; }
+.particle-4 { left: 55%; background: var(--color-accent); animation-delay: 0.4s; }
+.particle-5 { left: 70%; background: var(--color-primary); animation-delay: 0.2s; }
+.particle-6 { left: 85%; background: var(--color-accent-light); animation-delay: 0.5s; }
+.particle-7 { left: 15%; background: var(--color-primary); animation-delay: 0.6s; }
+.particle-8 { left: 35%; background: var(--color-accent); animation-delay: 0.7s; }
+.particle-9 { left: 65%; background: var(--color-accent-light); animation-delay: 0.8s; }
+.particle-10 { left: 80%; background: var(--color-primary); animation-delay: 0.2s; }
+.particle-11 { left: 48%; background: var(--color-accent); animation-delay: 0.9s; }
+.particle-12 { left: 92%; background: var(--color-primary); animation-delay: 1s; }
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 0.85;
+    transform: translateY(-10px) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(220px) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confetti-particle {
+    animation: none;
+    opacity: 0;
+  }
+  .result-card--gold .result-card__icon-wrap {
+    animation: none;
+  }
+}
+
+/* --- RESPONSIVE ADAPTATIONS --- */
+@media (max-width: 640px) {
+  .result-card {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .result-card__gwa {
+    font-size: 2.5rem;
+  }
+
+  .result-card__icon-wrap {
+    width: 56px;
+    height: 56px;
+  }
+
+  .result-card__icon-wrap svg {
+    width: 26px;
+    height: 26px;
+  }
+}

@@ -1,0 +1,99 @@
+/* ==========================================================================
+   RESULTS PAGE
+   A focused, standalone page shown after a calculation completes. Kept
+   deliberately minimal — no wizard chrome, no repeated disclaimer (that
+   already lives in the site footer) — so the result itself is the star.
+   ========================================================================== */
+
+.results-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) 0;
+  overflow: hidden;
+}
+
+/* Soft decorative glow behind the content, echoing the result card's own
+   background glow so the page and card feel like one cohesive moment. */
+.results-page__glow {
+  position: absolute;
+  top: -12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 720px;
+  height: 480px;
+  background: radial-gradient(circle, var(--color-primary-tint) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.results-page__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.results-page__header {
+  max-width: 560px;
+  margin-bottom: var(--space-5);
+}
+
+.results-page__eyebrow {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.results-page__title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.02em;
+}
+
+.results-page__subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.results-page__card-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.results-page__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .results-page {
+    padding: var(--space-6) 0 var(--space-7);
+  }
+
+  .results-page__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .results-page__actions {
+    width: 100%;
+  }
+
+  .results-page__actions .btn {
+    flex: 1 1 auto;
+  }
+}

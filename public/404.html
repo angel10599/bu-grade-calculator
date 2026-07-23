@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BU Grade Computation Portal</title>
+    <!--
+      GitHub Pages only serves index.html for the exact root URL — any other
+      path (e.g. /deans-lister, or a hard refresh on that page) hits this
+      404.html instead. This script re-encodes the path into a query string
+      and redirects to the real index.html, where the tiny script in
+      index.html decodes it and hands it back to React Router.
+      Based on the well-known spa-github-pages trick:
+      https://github.com/rafgraph/spa-github-pages
+    -->
+    <script type="text/javascript">
+      var pathSegmentsToKeep = 1; // number of segments in the base path (the repo name)
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

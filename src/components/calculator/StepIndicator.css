@@ -1,0 +1,99 @@
+.step-indicator {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6) 0;
+  gap: 0;
+}
+
+.step-indicator__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  max-width: 180px;
+}
+
+.step-indicator__circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  background-color: var(--color-surface-alt);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: background-color var(--transition-base), border-color var(--transition-base),
+    color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+  z-index: 1;
+}
+
+.step-indicator__item--active .step-indicator__circle {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  box-shadow: var(--shadow-glow-primary);
+  transform: scale(1.08);
+  animation: step-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes step-pulse {
+  0%, 100% {
+    box-shadow: var(--shadow-glow-primary);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(0, 119, 168, 0.16);
+  }
+}
+
+.step-indicator__item--done .step-indicator__circle {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+  color: #fff;
+}
+
+.step-indicator__label {
+  margin-top: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.step-indicator__item--active .step-indicator__label {
+  color: var(--color-text);
+}
+
+.step-indicator__connector {
+  position: absolute;
+  top: 18px;
+  left: calc(50% + 24px);
+  right: calc(-50% + 24px);
+  height: 2px;
+  background-color: var(--color-border);
+  transition: background-color var(--transition-slow);
+}
+
+.step-indicator__item--done .step-indicator__connector {
+  background-color: var(--color-success);
+}
+
+@media (max-width: 640px) {
+  .step-indicator__label {
+    font-size: 10px;
+  }
+  .step-indicator__circle {
+    width: 30px;
+    height: 30px;
+    font-size: var(--font-size-xs);
+  }
+  .step-indicator__connector {
+    top: 15px;
+  }
+}

@@ -1,0 +1,90 @@
+.page-header {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 55%, var(--color-primary-light) 130%);
+  padding: var(--space-7) 0 var(--space-6);
+  color: #fff;
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* A single soft glow instead of a repeating stripe pattern — adds depth
+   without reading as a decorative texture. */
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: -35%;
+  right: -10%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 68%);
+  pointer-events: none;
+}
+
+.page-header--orange {
+  background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 55%, var(--color-accent-light) 130%);
+}
+
+.page-header__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.page-header__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.page-header__crumb-link {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.page-header__crumb-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.page-header__crumb-sep {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.page-header__crumb-current {
+  color: #fff;
+  font-weight: 600;
+}
+
+.page-header__title {
+  position: relative;
+  color: #fff;
+  font-size: var(--font-size-2xl);
+  margin-bottom: 0;
+  letter-spacing: -0.01em;
+}
+
+.page-header__subtitle {
+  position: relative;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  margin-bottom: 0;
+  max-width: 640px;
+  font-family: var(--font-family-base);
+}
+
+@media (max-width: 640px) {
+  .page-header {
+    padding: var(--space-6) 0 var(--space-5);
+  }
+  .page-header__title {
+    font-size: var(--font-size-xl);
+  }
+}
