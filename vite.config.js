@@ -12,5 +12,5 @@ export default defineConfig(({ command }) => ({
   // Only applied during `npm run build` — `npm run dev` always serves from
   // the root ('/') so your local dev server keeps working normally at
   // http://localhost:5173/ regardless of what this is set to.
-  base: command === 'build' ? '/bicol-university-grade-calculator/' : '/',
+  base: command === 'build' ? '/bu-grade-calculator/' : '/',
 }))
