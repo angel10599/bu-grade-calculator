@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://angel10599.github.io/bu-grade-calculator/sitemap.xml
